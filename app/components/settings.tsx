@@ -223,6 +223,7 @@ export function Settings(props: { closeSettings: () => void }) {
             </Popover>
           </SettingItem>
 
+          {/*
           <SettingItem
             title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
             subTitle={
@@ -247,6 +248,7 @@ export function Settings(props: { closeSettings: () => void }) {
               />
             )}
           </SettingItem>
+          */}
 
           <SettingItem title={Locale.Settings.SendKey}>
             <select

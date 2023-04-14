@@ -36,6 +36,7 @@ const makeRequestParam = (
 function getHeaders() {
   const accessStore = useAccessStore.getState();
   let headers: Record<string, string> = {};
+  const modelConfig = { ...useChatStore.getState().config.modelConfig };
 
   if (accessStore.enabledAccessControl()) {
     headers["access-code"] = accessStore.accessCode;
@@ -43,6 +44,9 @@ function getHeaders() {
 
   if (accessStore.token && accessStore.token.length > 0) {
     headers["token"] = accessStore.token;
+  }
+  if (modelConfig.model.startsWith("gpt-4")) {
+    headers["gpt4"] = "true";
   }
 
   return headers;
